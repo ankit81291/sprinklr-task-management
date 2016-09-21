@@ -1,0 +1,391 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  font-size: 14px;
+}
+
+.app-header {
+  height: auto;
+  background-color: #329470;
+  padding: 30px;
+
+  .header-text {
+    font-size: 20px;
+    color: #fff;
+    width: 90%;
+    display: inline-block;
+  }
+
+  .close-icon {
+    background: url('../images/cancel.png') center center no-repeat;
+    height: 16px;
+    width: 16px;
+    background-size: contain;
+    display: inline-block;
+    cursor: pointer;
+  }
+}
+
+.overlay {
+  position: absolute;
+	z-index: 99999;
+
+  .overlay-backdrop {
+    background: black;
+    opacity: 0.3;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+	.overlay-content {
+		border-radius: 3px;
+		background: #fff;
+    box-shadow: 0px 0px 4px 0px;
+    line-height: normal;
+    outline: none;
+    max-width: 700px;
+    min-width: 200px;
+		opacity: 1;
+		position: absolute;
+		width: auto;
+    right: 50%;
+    top: 100%;
+  	transform: translate(50%, 9px);
+  	> div {
+  		font-size: .95em;
+  	}
+  }
+}
+
+.main-container {
+  margin: auto;
+  padding: 20px;
+
+  > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .new-icon {
+    background: url('../images/info.png') center center no-repeat;
+    height: 16px;
+    width: 16px;
+  }
+
+  &.overlay-show {
+    overflow: hidden;
+  }
+
+  .screen-3 {
+    width: 25%;
+    margin: 25px;
+    box-shadow: 0 0 2px;
+    background: #f9f9f9;
+    padding: 20px;
+  }
+
+  .screen-4 {
+    width: 20%;
+    display: inline-block;
+    margin: 20px;
+    vertical-align: top;
+  }
+
+  .project-body {
+
+    &.new-project {
+      border: 0;
+      opacity: 0.7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+
+      .project-title {
+        display: block;
+      }
+    }
+
+    .project-title {
+      font-size: 18px;
+      padding: 10px 0;
+    }
+
+    .project-desc {
+      font-size: 12px;
+      opacity: 0.8;
+    }
+
+    .project-highlight {
+      font-weight: bold;
+      padding-top: 10px;
+    }
+  }
+
+  .border-view {
+    padding: 20px;
+    margin: 5px 0;
+    border-right: 1px dashed gray;
+  }
+
+  .member-view {
+
+    &.new-member {
+      opacity: 0.7;
+      cursor: pointer;
+    }
+    .header {
+      box-shadow: 0 0 2px;
+      background: #fff;
+      padding: 20px;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    .task-view {
+      margin: 10px 0;
+      background: #f9f9f9;
+      padding: 15px;
+      font-size: 12px;
+      border-left: 2px solid;
+      z-index: -3;
+
+      &.new-task {
+        border: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0.7;
+        z-index: 1;
+        cursor: pointer;
+
+        .task-title {
+          display: block;
+        }
+
+        &.drop-target {
+          margin: 10px 0;
+          background: #f9f9f9;
+          padding: 15px;
+          border: 1px dashed #c7c7c7;
+          z-index: 10;
+          &:before {
+            content: "Drop here";
+            color: rgba(0, 0, 0, 0.7);
+            position: absolute;
+
+          }
+          .task-title {
+            z-index: -1;
+            opacity: 0.4;
+          }
+        }
+      }
+
+      &.green {
+        border-left-color: green;
+        .task-status {
+          background-color: green;
+          color: #f1f1f1;
+        }
+      }
+      &.red {
+        border-left-color: red;
+        .task-status {
+          background-color: red;
+          color: #f1f1f1;
+        }
+      }
+      &.yellow {
+        border-left-color: yellow;
+        .task-status {
+          background-color: yellow;
+          color: #000;
+        }
+      }
+      &.orange {
+        border-left-color: orange;
+        .task-status {
+          background-color: orange;
+          color: #000;
+        }
+      }
+      &.blue {
+        border-left-color: blue;
+        .task-status {
+          background-color: blue;
+          color: #f1f1f1;
+        }
+      }
+
+      .task-title {
+        font-weight: 800;
+        font-size: 14px;
+        display: inline-block;
+        width: 45%;
+        vertical-align: top;
+        line-height: 32px;
+      }
+
+      .task-status {
+        border-radius: 13px;
+        height: 26px;
+        line-height: 26px;
+        padding: 0 12px 0 12px;
+        box-sizing: border-box;
+        width: 50%;
+        position: relative;
+        padding-right: 16px;
+        margin-left: 10px;
+        display: inline-block;
+
+        .status-label {
+          display: block;
+          float: left;
+          max-width: 100%;
+          padding-right: 4px;
+        }
+
+        .down-icon {
+          background: url('../images/down.png') center center no-repeat;
+          width: 16px;
+          position: absolute;
+          right: 8px;
+          height: 26px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.overlay-content {
+  .change-status {
+    width: 250px;
+    text-align: left;
+    .status {
+      padding: 10px;
+      cursor: pointer;
+      &:hover {
+        background-color: #f2f2f2;
+      }
+    }
+  }
+}
+
+
+.form-field {
+	width: 100%;
+	box-sizing: border-box;
+	padding-bottom: 10px;
+	margin: 0;
+	display: block;
+	transition: all 0.3s linear;
+	.field-label {
+		vertical-align: middle;
+		font-weight: 700;
+		display: block;
+		margin-top: 9px;
+		margin-bottom: 7px;
+		font-size: 14px;
+	}
+	.input-group {
+		display: inline-block;
+		border: 0;
+		padding: 0;
+		vertical-align: middle;
+		width: 80%;
+
+    input[type='text'], textarea, select {
+      outline: none;
+    	height: 34px;
+    	border: 1px solid #c7c7c7;
+    	padding: 0 8px;
+    	background-clip: border-box;
+    	border-radius: 2px;
+    	transition-property: border;
+    	transition-duration: 0.35s;
+    	font-size: 1.0rem;
+    	box-sizing: border-box;
+    	width: 100%;
+    	vertical-align: middle;
+    }
+
+    textarea {
+    	height: 60px;
+    	padding-top: 4px;
+    	resize: none;
+    }
+	}
+}
+
+button {
+	background-color: transparent;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #c7c7c7;
+	display:inline-block;
+	cursor:pointer;
+	color:#c7c7c7;
+	font-family:Arial;
+	font-size: 14px;
+	padding: 10px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #329470;
+  margin: 10px;
+  &.primary {
+    background-color:#329470;
+  	border:1px solid #329470;
+    color: #fff;
+    &:hover {
+  	   background-color: #23684f;
+    }
+  }
+}
+
+
+.create-dialog {
+  width: 400px;
+
+
+  .dialog-header {
+    padding: 10px;
+    border-bottom: 1px solid gray;
+
+    .header-label {
+      display: inline-block;
+      width: 95%;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    .close-icon {
+      background: url('../images/cancel.png') center center no-repeat;
+      height: 10px;
+      width: 10px;
+      background-size: contain;
+      display: inline-block;
+    }
+  }
+
+  .dialog-content {
+    padding: 10px;
+  }
+
+  .dialog-actions {
+    border-top: 1px solid gray;
+    text-align: right;
+  }
+}
