@@ -1,32 +1,18 @@
 {
-  "name": "react-hot-boilerplate",
+  "name": "sprinklr-task-management",
   "version": "1.0.0",
-  "description": "Boilerplate for ReactJS project with hot code reloading",
+  "description": "Project management app for sprinklr",
   "scripts": {
     "start": "node server.js",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "clean": "rm -rf dist",
+    "prebuild": "copyfiles -f *.html dist/",
+    "build": "webpack -p --config webpack.prod.config.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/gaearon/react-hot-boilerplate.git"
   },
-  "keywords": [
-    "react",
-    "reactjs",
-    "boilerplate",
-    "hot",
-    "reload",
-    "hmr",
-    "live",
-    "edit",
-    "webpack"
-  ],
-  "author": "Dan Abramov <dan.abramov@me.com> (http://github.com/gaearon)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/gaearon/react-hot-boilerplate/issues"
-  },
-  "homepage": "https://github.com/gaearon/react-hot-boilerplate",
   "devDependencies": {
     "babel-core": "^6.0.20",
     "babel-eslint": "^4.1.3",
@@ -34,6 +20,7 @@
     "babel-preset-es2015": "^6.0.15",
     "babel-preset-react": "^6.0.15",
     "babel-preset-stage-0": "^6.0.15",
+    "copyfiles": "^1.0.0",
     "css-loader": "^0.25.0",
     "eslint": "^1.10.3",
     "eslint-plugin-react": "^3.6.2",
@@ -43,7 +30,7 @@
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
-    "webpack": "^1.12.2",
+    "webpack": "^1.13.2",
     "webpack-dev-server": "^1.12.1"
   },
   "dependencies": {
